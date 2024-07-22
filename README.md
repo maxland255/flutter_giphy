@@ -90,8 +90,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_giphy:
-    git: https://github.com/maxland255/flutter_giphy.git
+  flutter_giphy_picker: ^1.0.2
 ```
 
 ### Usage
