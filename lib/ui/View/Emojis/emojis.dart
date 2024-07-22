@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/ui/View/Emojis/emojis_variations.dart';
-import 'package:flutter_giphy/ui/View/Emojis/select_emoji.dart';
-import 'package:flutter_giphy/ui/giphy_config.dart';
-import 'package:flutter_giphy/ui/giphy_result.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/ui/View/Emojis/emojis_variations.dart';
+import 'package:flutter_giphy_picker/ui/View/Emojis/select_emoji.dart';
+import 'package:flutter_giphy_picker/ui/giphy_config.dart';
+import 'package:flutter_giphy_picker/ui/giphy_result.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class EmojisView extends StatefulWidget {

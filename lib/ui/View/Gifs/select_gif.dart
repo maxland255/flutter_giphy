@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/ui/LocalStorage/local_storage.dart';
-import 'package:flutter_giphy/ui/giphy_config.dart';
-import 'package:flutter_giphy/ui/giphy_result.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/ui/LocalStorage/local_storage.dart';
+import 'package:flutter_giphy_picker/ui/giphy_config.dart';
+import 'package:flutter_giphy_picker/ui/giphy_result.dart';
 
 class SelectGifView extends StatefulWidget {
   final GiphyAPI giphyAPI;

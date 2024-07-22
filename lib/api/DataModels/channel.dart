@@ -1,6 +1,6 @@
-import 'package:flutter_giphy/api/DataModels/channel_tag.dart';
-import 'package:flutter_giphy/api/DataModels/gif.dart';
-import 'package:flutter_giphy/api/DataModels/user.dart';
+import 'package:flutter_giphy_picker/api/DataModels/channel_tag.dart';
+import 'package:flutter_giphy_picker/api/DataModels/gif.dart';
+import 'package:flutter_giphy_picker/api/DataModels/user.dart';
 
 class ChannelData {
   /// Channel unique ID

@@ -1,4 +1,4 @@
-import 'package:flutter_giphy/giphy_api.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part './local_storage_impl.dart';

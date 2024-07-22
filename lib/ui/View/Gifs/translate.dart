@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/ui/View/Gifs/select_gif.dart';
-import 'package:flutter_giphy/ui/giphy_config.dart';
-import 'package:flutter_giphy/ui/giphy_result.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/select_gif.dart';
+import 'package:flutter_giphy_picker/ui/giphy_config.dart';
+import 'package:flutter_giphy_picker/ui/giphy_result.dart';
 
 class TranslateView extends StatefulWidget {
   final GiphyAPI giphyAPI;

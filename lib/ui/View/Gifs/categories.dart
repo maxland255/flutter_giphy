@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/giphy_ui.dart';
-import 'package:flutter_giphy/ui/View/Gifs/gifs_categorie.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/gifs_categorie.dart';
 
 class CategoriesView extends StatefulWidget {
   final GiphyAPI giphyAPI;

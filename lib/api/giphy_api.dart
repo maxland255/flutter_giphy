@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_giphy/api/Exception/api_exception.dart';
+import 'package:flutter_giphy_picker/api/Exception/api_exception.dart';
 import 'package:http/http.dart' as http;
 
 class GiphyApiManager {

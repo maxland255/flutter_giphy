@@ -1,10 +1,10 @@
-import 'package:flutter_giphy/api/DataModels/categories.dart';
-import 'package:flutter_giphy/api/DataModels/channel.dart';
-import 'package:flutter_giphy/api/DataModels/emoji.dart';
-import 'package:flutter_giphy/api/DataModels/gif.dart';
-import 'package:flutter_giphy/api/DataModels/meta.dart';
-import 'package:flutter_giphy/api/DataModels/pagination.dart';
-import 'package:flutter_giphy/api/DataModels/term.dart';
+import 'package:flutter_giphy_picker/api/DataModels/categories.dart';
+import 'package:flutter_giphy_picker/api/DataModels/channel.dart';
+import 'package:flutter_giphy_picker/api/DataModels/emoji.dart';
+import 'package:flutter_giphy_picker/api/DataModels/gif.dart';
+import 'package:flutter_giphy_picker/api/DataModels/meta.dart';
+import 'package:flutter_giphy_picker/api/DataModels/pagination.dart';
+import 'package:flutter_giphy_picker/api/DataModels/term.dart';
 
 /// Response model for Giphy API
 /// Only for Trending; Search

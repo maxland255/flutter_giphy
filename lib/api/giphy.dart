@@ -1,11 +1,11 @@
-import 'package:flutter_giphy/api/DataModels/response.dart';
-import 'package:flutter_giphy/api/Enum/bundle.dart';
-import 'package:flutter_giphy/api/Enum/language.dart';
-import 'package:flutter_giphy/api/Enum/rating.dart';
-import 'package:flutter_giphy/api/Exception/api_exception.dart';
-import 'package:flutter_giphy/api/Extension/int_extension.dart';
-import 'package:flutter_giphy/api/env.dart';
-import 'package:flutter_giphy/api/giphy_api.dart';
+import 'package:flutter_giphy_picker/api/DataModels/response.dart';
+import 'package:flutter_giphy_picker/api/Enum/bundle.dart';
+import 'package:flutter_giphy_picker/api/Enum/language.dart';
+import 'package:flutter_giphy_picker/api/Enum/rating.dart';
+import 'package:flutter_giphy_picker/api/Exception/api_exception.dart';
+import 'package:flutter_giphy_picker/api/Extension/int_extension.dart';
+import 'package:flutter_giphy_picker/api/env.dart';
+import 'package:flutter_giphy_picker/api/giphy_api.dart';
 
 class GiphyAPI {
   final String apiKey;

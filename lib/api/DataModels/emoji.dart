@@ -1,4 +1,4 @@
-import 'package:flutter_giphy/api/DataModels/gif.dart';
+import 'package:flutter_giphy_picker/api/DataModels/gif.dart';
 
 class EmojiData extends GifData {
   final int emojiGroupId;

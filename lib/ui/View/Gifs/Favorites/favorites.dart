@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/giphy_ui.dart';
-import 'package:flutter_giphy/ui/LocalStorage/local_storage.dart';
-import 'package:flutter_giphy/ui/View/Gifs/select_gif.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/ui/LocalStorage/local_storage.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:focus_detector_v2/focus_detector_v2.dart';
 
 class FavoritesView extends StatefulWidget {
   final GiphyAPI giphyAPI;
@@ -34,6 +35,8 @@ class _FavoritesView extends State<FavoritesView> {
   Exception? exception;
   bool loading = true;
   bool backLoading = false;
+
+  bool selectedGif = false;
 
   @override
   void initState() {
@@ -66,48 +69,67 @@ class _FavoritesView extends State<FavoritesView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Favorites"),
-      ),
-      body: loading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : error
-              ? Center(
-                  child: Text(exception.toString()),
-                )
-              : MasonryGridView.extent(
-                  maxCrossAxisExtent: 250,
-                  padding: const EdgeInsets.all(16),
-                  crossAxisSpacing: 7.5,
-                  mainAxisSpacing: 7.5,
-                  physics: const BouncingScrollPhysics(),
-                  controller: _scrollController,
-                  itemCount: gifs.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => SelectGifView(
-                              giphyAPI: widget.giphyAPI,
-                              gif: gifs[index],
-                              config: widget.config,
-                              isSticker: widget.isSticker,
-                              onSelected: widget.onSelected,
+    return FocusDetector(
+      onVisibilityGained: !selectedGif
+          ? null
+          : () {
+              getFavorites();
+
+              setState(() {
+                selectedGif = false;
+              });
+            },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Favorites"),
+        ),
+        body: loading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : error
+                ? Center(
+                    child: Text(exception.toString()),
+                  )
+                : gifs.isEmpty
+                    ? const Center(
+                        child: Text("No favorite found"),
+                      )
+                    : MasonryGridView.extent(
+                        maxCrossAxisExtent: 250,
+                        padding: const EdgeInsets.all(16),
+                        crossAxisSpacing: 7.5,
+                        mainAxisSpacing: 7.5,
+                        physics: const BouncingScrollPhysics(),
+                        controller: _scrollController,
+                        itemCount: gifs.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedGif = true;
+                              });
+
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => SelectGifView(
+                                    giphyAPI: widget.giphyAPI,
+                                    gif: gifs[index],
+                                    config: widget.config,
+                                    isSticker: widget.isSticker,
+                                    onSelected: widget.onSelected,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Image.network(
+                              gifs[index].images.previewGif!.url,
+                              fit: BoxFit.contain,
                             ),
-                          ),
-                        );
-                      },
-                      child: Image.network(
-                        gifs[index].images.previewGif!.url,
-                        fit: BoxFit.contain,
+                          );
+                        },
                       ),
-                    );
-                  },
-                ),
+      ),
     );
   }
 

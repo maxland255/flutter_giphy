@@ -1,5 +1,5 @@
-import 'package:flutter_giphy/api/DataModels/gif.dart';
-import 'package:flutter_giphy/api/DataModels/subcategories.dart';
+import 'package:flutter_giphy_picker/api/DataModels/gif.dart';
+import 'package:flutter_giphy_picker/api/DataModels/subcategories.dart';
 
 class CategoriesData {
   final String name;

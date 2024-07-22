@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/ui/View/Emojis/emojis.dart';
-import 'package:flutter_giphy/ui/View/Gifs/gif_tab.dart';
-import 'package:flutter_giphy/ui/giphy_config.dart';
-import 'package:flutter_giphy/ui/giphy_result.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/ui/View/Emojis/emojis.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/gif_tab.dart';
+import 'package:flutter_giphy_picker/ui/giphy_config.dart';
+import 'package:flutter_giphy_picker/ui/giphy_result.dart';
 
 /// Giphy UI
 class Giphy extends StatefulWidget {

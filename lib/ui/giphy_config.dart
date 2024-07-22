@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
 
 /// Giphy UI Config
 ///

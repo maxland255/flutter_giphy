@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_giphy/giphy_api.dart';
-import 'package:flutter_giphy/giphy_ui.dart';
-import 'package:flutter_giphy/ui/View/Gifs/categories.dart';
-import 'package:flutter_giphy/ui/View/Gifs/search.dart';
-import 'package:flutter_giphy/ui/View/Gifs/select_gif.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/categories.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/search.dart';
+import 'package:flutter_giphy_picker/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class GifsView extends StatefulWidget {

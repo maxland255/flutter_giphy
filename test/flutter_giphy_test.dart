@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_giphy/giphy_api.dart';
+import 'package:flutter_giphy_picker/giphy_api.dart';
 
 void main() {
   String apiKey = "YOUR_API_KEY";

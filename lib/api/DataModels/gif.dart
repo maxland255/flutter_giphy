@@ -1,7 +1,7 @@
-import 'package:flutter_giphy/api/DataModels/analytics.dart';
-import 'package:flutter_giphy/api/DataModels/image.dart';
-import 'package:flutter_giphy/api/DataModels/user.dart';
-import 'package:flutter_giphy/api/Enum/rating.dart';
+import 'package:flutter_giphy_picker/api/DataModels/analytics.dart';
+import 'package:flutter_giphy_picker/api/DataModels/image.dart';
+import 'package:flutter_giphy_picker/api/DataModels/user.dart';
+import 'package:flutter_giphy_picker/api/Enum/rating.dart';
 
 class GifData {
   /// By default, this is almost always GIF.

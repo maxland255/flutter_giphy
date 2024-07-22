@@ -17,3 +17,13 @@
     - **Loading Indicators**: Smooth loading indicators while fetching data and images.
     - **Error Handling**: Graceful handling of errors during API requests and image loading.
     - **User Interface**: Intuitive and user-friendly interface for easy navigation and selection.
+
+## 1.0.1
+
+### Change
+- **Package Name**:
+  - Change package name flutter_giphy to flutter_giphy_picker
+
+- **Giphy Picker UI**:
+  - Add reload favorites gifs / stickers on remove an element
+  - Add message if no favorite found
