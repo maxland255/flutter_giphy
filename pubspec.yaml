@@ -1,11 +1,11 @@
 name: flutter_giphy_picker
-description: "A powerfull sdk for Giphy API"
-version: 1.0.1
+description: A Flutter package for interacting with the Giphy API and a full-featured GIF picker UI, enabling seamless search and selection of GIFs, stickers, and emojis.
+version: 1.0.2
 homepage: https://pieteraerens.eu
 repository: https://github.com/maxland255/flutter_giphy.git
 
 environment:
-  sdk: '>=3.4.4 <4.0.0'
+  sdk: '>=3.4.3 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

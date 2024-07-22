@@ -1,3 +1,6 @@
+/// A library to interact with the Giphy API.
+///
+/// This library provides a way to interact with the Giphy API.
 library giphy_api;
 
 export 'api/giphy.dart';

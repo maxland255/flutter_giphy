@@ -27,3 +27,8 @@
 - **Giphy Picker UI**:
   - Add reload favorites gifs / stickers on remove an element
   - Add message if no favorite found
+
+## 1.0.2
+
+### Change
+  Update package for pub.dev
