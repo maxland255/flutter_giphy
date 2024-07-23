@@ -1,0 +1,6 @@
+arb-dir: lib/src/ui/l10n
+template-arb-file: app_en.arb
+output-localization-file: flutter_giphy_picker_localizations.dart
+synthetic-package: false
+output-dir: lib/src/ui/l10n/generated
+output-class: GiphyPickerLocalizations

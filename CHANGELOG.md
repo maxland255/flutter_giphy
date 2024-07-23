@@ -32,3 +32,19 @@
 
 ### Change
   Update package for pub.dev
+
+
+## 1.0.3
+
+### Change
+-	**File Structure Improvement**:
+    -	Moved internal files to a src directory to improve package encapsulation and maintainability.
+    -	Updated exports in giphy_api.dart and giphy_ui.dart to reflect the new structure.
+
+- **Giphy UI Supported Language**:
+  - Add French language for UI
+  - Add English language for UI
+
+### Details
+  -	Internal files for API interaction and UI components are now located in lib/src/api/ and lib/src/ui/ respectively.
+  -	Public API surface remains unchanged for package users.

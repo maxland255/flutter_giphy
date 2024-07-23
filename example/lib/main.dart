@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Giphy Test',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale("en"),
+        Locale("fr"),
+      ],
+      locale: Locale("fr"),
       home: Scaffold(
         body: TestApp(),
       ),
@@ -52,7 +63,10 @@ class _TestApp extends State<TestApp> {
                   apiKey: "YOUR_API_KEY",
                 );
 
-                final result = await showGiphyPicker(context, config);
+                final result = await showGiphyPicker(
+                  context,
+                  config,
+                );
 
                 setState(() {
                   gifUrl = result;

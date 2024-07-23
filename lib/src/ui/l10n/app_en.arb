@@ -1,0 +1,26 @@
+{
+    "@@locale": "en",
+    "@@author": "Maxland255",
+    "close": "Close",
+    "translate": "Translate",
+    "convert_word_to": "Converts words and phrases to the perfect {element}",
+    "@convert_word_to": {
+        "placeholders": {
+            "element": {
+                "type": "String",
+                "example": "GIF"
+            }
+        }
+    },
+    "search_stickers": "Search Stickers",
+    "search_gif": "Search Gifs",
+    "use_search_user": "Use @ to search a user",
+    "no_gif_found": "No gif found",
+    "trending": "Trending",
+    "favorites": "Favorites",
+    "no_favorites_found": "No favorites found",
+    "select_gif": "Select this GIF",
+    "select_sticker": "Select this Sticker",
+    "select_emoji": "Select this Emoji",
+    "emojis": "Emojis"
+}

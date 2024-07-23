@@ -85,6 +85,12 @@ class _TestAppState extends State<TestApp> {
 }
 ```
 
+### Localization
+
+The `giphy_ui` library supports localization for two languages:
+  -	**English**
+  -	**French**
+
 ### Installation
 Add the following to your `pubspec.yaml` file:
 

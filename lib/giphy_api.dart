@@ -3,13 +3,15 @@
 /// This library provides a way to interact with the Giphy API.
 library giphy_api;
 
-export 'api/giphy.dart';
-export 'api/Enum/bundle.dart';
-export 'api/Enum/language.dart';
-export 'api/Enum/rating.dart';
-export 'api/DataModels/gif.dart';
-export 'api/DataModels/categories.dart';
-export 'api/DataModels/subcategories.dart';
-export 'api/DataModels/emoji.dart';
-export 'api/DataModels/term.dart';
-export 'api/DataModels/response.dart';
+export 'src/api/giphy.dart';
+export 'src/api/Enum/bundle.dart';
+export 'src/api/Enum/language.dart';
+export 'src/api/Enum/rating.dart';
+export 'src/api/DataModels/gif.dart';
+export 'src/api/DataModels/categories.dart';
+export 'src/api/DataModels/subcategories.dart';
+export 'src/api/DataModels/emoji.dart';
+export 'src/api/DataModels/term.dart';
+export 'src/api/DataModels/response.dart';
+export 'src/api/DataModels/channel.dart';
+export 'src/api/DataModels/channel_tag.dart';
