@@ -108,7 +108,8 @@ class _SelectGifView extends State<SelectGifView> {
         children: [
           Center(
             child: Image.network(
-              widget.gif.images.original!.webp!,
+              widget.gif.images.downsized?.url ??
+                  widget.gif.images.original!.webp!,
               fit: BoxFit.contain,
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) {

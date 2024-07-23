@@ -9,4 +9,8 @@ class ApiException implements Exception {
   String toString() {
     return 'ApiException{message: $message, code: $code, error: $error}';
   }
+
+  String toDisplay() {
+    return message ?? 'An error occurred';
+  }
 }

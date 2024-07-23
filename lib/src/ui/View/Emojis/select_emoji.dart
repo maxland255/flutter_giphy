@@ -58,7 +58,8 @@ class _SelectEmojiView extends State<SelectEmojiView> {
         children: [
           Center(
             child: Image.network(
-              widget.emoji.images.original!.webp!,
+              widget.emoji.images.downsized?.url ??
+                  widget.emoji.images.original!.webp!,
               fit: BoxFit.contain,
               loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) {

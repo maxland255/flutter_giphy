@@ -135,18 +135,29 @@ class _SearchView extends State<SearchView> {
         controller: _scrollController,
         padding: const EdgeInsets.all(8),
         children: [
-          TextField(
-            controller: searchController,
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              labelText: widget.isSticker
-                  ? translations(context)?.searchStickers ?? "Search Stickers"
-                  : translations(context)?.searchGif ?? "Search Gifs",
-              hintText: translations(context)?.useSearchUser ??
-                  "Use @ to search a user",
-            ),
-            onChanged: _onSearchChanged,
-            onSubmitted: (_) => searchGifs(true),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: searchController,
+                  decoration: InputDecoration(
+                    border: const OutlineInputBorder(),
+                    labelText: widget.isSticker
+                        ? translations(context)?.searchStickers ??
+                            "Search Stickers"
+                        : translations(context)?.searchGif ?? "Search Gifs",
+                    hintText: translations(context)?.useSearchUser ??
+                        "Use @ to search a user",
+                  ),
+                  onChanged: _onSearchChanged,
+                  onSubmitted: (_) => searchGifs(true),
+                ),
+              ),
+              IconButton(
+                onPressed: search.isEmpty ? null : () => searchGifs(true),
+                icon: const Icon(Icons.search),
+              ),
+            ],
           ),
           if (autoCompleteData.isNotEmpty)
             Padding(

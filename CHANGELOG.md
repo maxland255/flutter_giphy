@@ -48,3 +48,11 @@
 ### Details
   -	Internal files for API interaction and UI components are now located in lib/src/api/ and lib/src/ui/ respectively.
   -	Public API surface remains unchanged for package users.
+
+
+## 1.0.4
+
+### Change
+- **Giphy picker**:
+  - Update gif in select_gif view for slow internet connection.
+  - Minor bugs fixe

@@ -47,7 +47,8 @@ class _TranslateView extends State<TranslateView> {
               child: Center(
                 child: Text(
                   translations(context)?.convertWordTo(
-                          widget.isSticker ? "Sticker" : "GIF") ??
+                        widget.isSticker ? "Sticker" : "GIF",
+                      ) ??
                       "Converts words and phrases to the perfect ${widget.isSticker ? "Sticker" : "GIF"}",
                 ),
               ),
