@@ -105,35 +105,35 @@ abstract class GiphyPickerLocalizations {
   /// **'Translate'**
   String get translate;
 
-  /// No description provided for @convert_word_to.
+  /// No description provided for @convertWordTo.
   ///
   /// In en, this message translates to:
   /// **'Converts words and phrases to the perfect {element}'**
-  String convert_word_to(String element);
+  String convertWordTo(String element);
 
-  /// No description provided for @search_stickers.
+  /// No description provided for @searchStickers.
   ///
   /// In en, this message translates to:
   /// **'Search Stickers'**
-  String get search_stickers;
+  String get searchStickers;
 
-  /// No description provided for @search_gif.
+  /// No description provided for @searchGif.
   ///
   /// In en, this message translates to:
   /// **'Search Gifs'**
-  String get search_gif;
+  String get searchGif;
 
-  /// No description provided for @use_search_user.
+  /// No description provided for @useSearchUser.
   ///
   /// In en, this message translates to:
   /// **'Use @ to search a user'**
-  String get use_search_user;
+  String get useSearchUser;
 
-  /// No description provided for @no_gif_found.
+  /// No description provided for @noGifFound.
   ///
   /// In en, this message translates to:
   /// **'No gif found'**
-  String get no_gif_found;
+  String get noGifFound;
 
   /// No description provided for @trending.
   ///
@@ -147,29 +147,29 @@ abstract class GiphyPickerLocalizations {
   /// **'Favorites'**
   String get favorites;
 
-  /// No description provided for @no_favorites_found.
+  /// No description provided for @noFavoritesFound.
   ///
   /// In en, this message translates to:
   /// **'No favorites found'**
-  String get no_favorites_found;
+  String get noFavoritesFound;
 
-  /// No description provided for @select_gif.
+  /// No description provided for @selectGif.
   ///
   /// In en, this message translates to:
   /// **'Select this GIF'**
-  String get select_gif;
+  String get selectGif;
 
-  /// No description provided for @select_sticker.
+  /// No description provided for @selectSticker.
   ///
   /// In en, this message translates to:
   /// **'Select this Sticker'**
-  String get select_sticker;
+  String get selectSticker;
 
-  /// No description provided for @select_emoji.
+  /// No description provided for @selectEmoji.
   ///
   /// In en, this message translates to:
   /// **'Select this Emoji'**
-  String get select_emoji;
+  String get selectEmoji;
 
   /// No description provided for @emojis.
   ///

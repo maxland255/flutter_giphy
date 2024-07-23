@@ -96,7 +96,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_giphy_picker: ^1.0.2
+  flutter_giphy_picker: ^1.0.4
 ```
 
 ### Usage

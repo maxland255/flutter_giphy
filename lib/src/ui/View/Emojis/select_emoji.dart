@@ -102,7 +102,7 @@ class _SelectEmojiView extends State<SelectEmojiView> {
                 elevation: 5,
               ),
               child: Text(
-                translations(context)?.select_emoji ?? "Select this Emoji",
+                translations(context)?.selectEmoji ?? "Select this Emoji",
               ),
             ),
           ),

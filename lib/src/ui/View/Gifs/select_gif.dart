@@ -153,9 +153,9 @@ class _SelectGifView extends State<SelectGifView> {
               ),
               child: Text(
                 widget.isSticker
-                    ? translations(context)?.select_sticker ??
+                    ? translations(context)?.selectSticker ??
                         "Select this Sticker"
-                    : translations(context)?.select_gif ?? "Select this GIF",
+                    : translations(context)?.selectGif ?? "Select this GIF",
               ),
             ),
           ),

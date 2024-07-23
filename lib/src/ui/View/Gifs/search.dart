@@ -127,8 +127,8 @@ class _SearchView extends State<SearchView> {
       appBar: AppBar(
         title: Text(
           widget.isSticker
-              ? translations(context)?.search_stickers ?? "Search Stickers"
-              : translations(context)?.search_gif ?? "Search Gifs",
+              ? translations(context)?.searchStickers ?? "Search Stickers"
+              : translations(context)?.searchGif ?? "Search Gifs",
         ),
       ),
       body: ListView(
@@ -140,9 +140,9 @@ class _SearchView extends State<SearchView> {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               labelText: widget.isSticker
-                  ? translations(context)?.search_stickers ?? "Search Stickers"
-                  : translations(context)?.search_gif ?? "Search Gifs",
-              hintText: translations(context)?.use_search_user ??
+                  ? translations(context)?.searchStickers ?? "Search Stickers"
+                  : translations(context)?.searchGif ?? "Search Gifs",
+              hintText: translations(context)?.useSearchUser ??
                   "Use @ to search a user",
             ),
             onChanged: _onSearchChanged,

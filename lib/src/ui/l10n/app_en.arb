@@ -3,8 +3,8 @@
     "@@author": "Maxland255",
     "close": "Close",
     "translate": "Translate",
-    "convert_word_to": "Converts words and phrases to the perfect {element}",
-    "@convert_word_to": {
+    "convertWordTo": "Converts words and phrases to the perfect {element}",
+    "@convertWordTo": {
         "placeholders": {
             "element": {
                 "type": "String",
@@ -12,15 +12,15 @@
             }
         }
     },
-    "search_stickers": "Search Stickers",
-    "search_gif": "Search Gifs",
-    "use_search_user": "Use @ to search a user",
-    "no_gif_found": "No gif found",
+    "searchStickers": "Search Stickers",
+    "searchGif": "Search Gifs",
+    "useSearchUser": "Use @ to search a user",
+    "noGifFound": "No gif found",
     "trending": "Trending",
     "favorites": "Favorites",
-    "no_favorites_found": "No favorites found",
-    "select_gif": "Select this GIF",
-    "select_sticker": "Select this Sticker",
-    "select_emoji": "Select this Emoji",
+    "noFavoritesFound": "No favorites found",
+    "selectGif": "Select this GIF",
+    "selectSticker": "Select this Sticker",
+    "selectEmoji": "Select this Emoji",
     "emojis": "Emojis"
 }

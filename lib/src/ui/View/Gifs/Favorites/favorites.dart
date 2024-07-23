@@ -95,7 +95,7 @@ class _FavoritesView extends State<FavoritesView> {
                 : gifs.isEmpty
                     ? Center(
                         child: Text(
-                          translations(context)?.no_favorites_found ??
+                          translations(context)?.noFavoritesFound ??
                               "No favorite found",
                         ),
                       )

@@ -46,7 +46,7 @@ class _TranslateView extends State<TranslateView> {
               padding: const EdgeInsets.only(bottom: 16),
               child: Center(
                 child: Text(
-                  translations(context)?.convert_word_to(
+                  translations(context)?.convertWordTo(
                           widget.isSticker ? "Sticker" : "GIF") ??
                       "Converts words and phrases to the perfect ${widget.isSticker ? "Sticker" : "GIF"}",
                 ),
@@ -61,11 +61,10 @@ class _TranslateView extends State<TranslateView> {
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
                         labelText: widget.isSticker
-                            ? translations(context)?.search_stickers ??
+                            ? translations(context)?.searchStickers ??
                                 "Search Stickers"
-                            : translations(context)?.search_gif ??
-                                "Search Gifs",
-                        hintText: translations(context)?.use_search_user ??
+                            : translations(context)?.searchGif ?? "Search Gifs",
+                        hintText: translations(context)?.useSearchUser ??
                             "Use @ to search a user",
                       ),
                       onChanged: (value) {
@@ -97,7 +96,7 @@ class _TranslateView extends State<TranslateView> {
             else if (gif == null)
               Center(
                 child: Text(
-                  translations(context)?.no_gif_found ?? "No gif found",
+                  translations(context)?.noGifFound ?? "No gif found",
                 ),
               )
             else

@@ -11,21 +11,21 @@ class GiphyPickerLocalizationsEn extends GiphyPickerLocalizations {
   String get translate => 'Translate';
 
   @override
-  String convert_word_to(String element) {
+  String convertWordTo(String element) {
     return 'Converts words and phrases to the perfect $element';
   }
 
   @override
-  String get search_stickers => 'Search Stickers';
+  String get searchStickers => 'Search Stickers';
 
   @override
-  String get search_gif => 'Search Gifs';
+  String get searchGif => 'Search Gifs';
 
   @override
-  String get use_search_user => 'Use @ to search a user';
+  String get useSearchUser => 'Use @ to search a user';
 
   @override
-  String get no_gif_found => 'No gif found';
+  String get noGifFound => 'No gif found';
 
   @override
   String get trending => 'Trending';
@@ -34,16 +34,16 @@ class GiphyPickerLocalizationsEn extends GiphyPickerLocalizations {
   String get favorites => 'Favorites';
 
   @override
-  String get no_favorites_found => 'No favorites found';
+  String get noFavoritesFound => 'No favorites found';
 
   @override
-  String get select_gif => 'Select this GIF';
+  String get selectGif => 'Select this GIF';
 
   @override
-  String get select_sticker => 'Select this Sticker';
+  String get selectSticker => 'Select this Sticker';
 
   @override
-  String get select_emoji => 'Select this Emoji';
+  String get selectEmoji => 'Select this Emoji';
 
   @override
   String get emojis => 'Emojis';

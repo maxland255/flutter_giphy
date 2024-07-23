@@ -1,6 +1,6 @@
 name: flutter_giphy_picker
 description: A Flutter package for interacting with the Giphy API and a full-featured GIF picker UI, enabling seamless search and selection of GIFs, stickers, and emojis.
-version: 1.0.3
+version: 1.0.4
 homepage: https://pieteraerens.eu
 repository: https://github.com/maxland255/flutter_giphy.git
 
