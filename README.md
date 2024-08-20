@@ -1,8 +1,8 @@
 ## flutter_giphy_picker Package
 
-![Trending gifs view](./images/gifs.png)
-![Trending stickers view](./images/stickers.png)
-![Emojis view](./images/emojis.png)
+<img src="https://github.com/maxland255/flutter_giphy/blob/main/images/gifs.png?raw=true" width="300" alt="Trending gifs view">
+<img src="https://github.com/maxland255/flutter_giphy/blob/main/images/stickers.png?raw=true" width="300" alt="Trending stickers view">
+<img src="https://github.com/maxland255/flutter_giphy/blob/main/images/emojis.png?raw=true" width="300" alt="Emoji view">
 
 This Flutter package provides two main functionalities:
 
