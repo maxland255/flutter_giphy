@@ -85,7 +85,7 @@ class _TestApp extends State<TestApp> {
           child: TextButton(
             onPressed: () async {
               final config = GiphyUIConfig(
-                apiKey: "eXnQrseOgDHqDPRFmh5Y2QH2Ntf4mghO",
+                apiKey: "YOUR_API_KEY",
               );
 
               final result = await showGiphyPicker(

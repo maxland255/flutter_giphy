@@ -84,12 +84,22 @@ class GiphyUIConfig {
   }
 }
 
+/// GiphyShow enum is used to decide which type of media to show
+///
+/// gif: Show Gif
+/// sticker: Show Sticker
+/// emoji: Show Emoji
 enum GiphyShow {
   gif,
   sticker,
   emoji,
 }
 
+/// GiphyFunction enum is used to decide which functionnalities to show
+///
+/// favorites: Show favorites
+/// search: Show search
+/// trending: Show trending
 enum GiphyFunction {
   favorites,
   search,
@@ -97,6 +107,12 @@ enum GiphyFunction {
   translate,
 }
 
+/// GiphyThemeMode enum is used to decide which theme mode to use
+///
+/// system: Use system theme mode
+/// light: Use light theme mode
+/// dark: Use dark theme mode
+/// app: Use app theme mode
 enum GiphyThemeMode {
   system,
   light,
