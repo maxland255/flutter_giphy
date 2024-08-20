@@ -4,7 +4,7 @@ import 'package:flutter_giphy_picker/giphy_api.dart';
 /// Giphy UI Config
 ///
 /// apiKey: Giphy API Key
-/// themeMode: ThemeMode
+/// themeMode: GiphyThemeMode
 /// lightTheme: ThemeData
 /// darkTheme: ThemeData
 /// rating: Rating
@@ -18,7 +18,7 @@ class GiphyUIConfig {
   final String apiKey;
 
   /// Theme Mode for the Giphy UI
-  final ThemeMode themeMode;
+  final GiphyThemeMode themeMode;
 
   /// Light Theme for the Giphy UI
   final ThemeData? lightTheme;
@@ -46,7 +46,7 @@ class GiphyUIConfig {
 
   GiphyUIConfig({
     required this.apiKey,
-    this.themeMode = ThemeMode.system,
+    this.themeMode = GiphyThemeMode.app,
     this.lightTheme,
     this.darkTheme,
     this.rating,
@@ -95,4 +95,26 @@ enum GiphyFunction {
   search,
   trending,
   translate,
+}
+
+enum GiphyThemeMode {
+  system,
+  light,
+  dark,
+  app;
+
+  ThemeMode toThemeMode(BuildContext context) {
+    switch (this) {
+      case GiphyThemeMode.system:
+        return ThemeMode.system;
+      case GiphyThemeMode.light:
+        return ThemeMode.light;
+      case GiphyThemeMode.dark:
+        return ThemeMode.dark;
+      case GiphyThemeMode.app:
+        return Theme.of(context).brightness == Brightness.light
+            ? ThemeMode.light
+            : ThemeMode.dark;
+    }
+  }
 }

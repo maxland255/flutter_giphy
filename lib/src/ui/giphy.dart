@@ -12,6 +12,7 @@ class Giphy extends StatefulWidget {
   final GiphyAPI giphyAPI;
   final GiphyUIConfig config;
   final GiphyLocale locale;
+  final ThemeMode themeMode;
   final Function(GiphyResult) onSelected;
   final Function() onClosed;
 
@@ -20,6 +21,7 @@ class Giphy extends StatefulWidget {
     required this.giphyAPI,
     required this.config,
     required this.locale,
+    required this.themeMode,
     required this.onSelected,
     required this.onClosed,
   });
@@ -71,7 +73,7 @@ class _Giphy extends State<Giphy> {
             brightness: Brightness.dark,
             useMaterial3: true,
           ),
-      themeMode: widget.config.themeMode,
+      themeMode: widget.themeMode,
       home: DefaultTabController(
         length: length,
         child: Scaffold(

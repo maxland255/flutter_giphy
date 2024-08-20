@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class SearchView extends StatefulWidget {
 
 class _SearchView extends State<SearchView> {
   final ScrollController _scrollController = ScrollController();
+  final ScrollController _trendingController = ScrollController();
 
   SuccessResponseMultiModel? response;
 
@@ -207,33 +209,86 @@ class _SearchView extends State<SearchView> {
   Widget trendingSearchWidget() {
     return SizedBox(
       height: 40,
-      child: ListView.builder(
-        padding: const EdgeInsets.symmetric(vertical: 7.5, horizontal: 5),
-        scrollDirection: Axis.horizontal,
-        itemCount: trendingSearch.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: ElevatedButton.icon(
+      child: Row(
+        children: [
+          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+            IconButton(
               onPressed: () {
-                setState(() {
-                  searchController.text = trendingSearch[index].toCapitalize();
-                  search = trendingSearch[index].toCapitalize();
-                  searchGifs(true);
-                });
+                if (_trendingController.offset > 400) {
+                  _trendingController.animateTo(
+                    _trendingController.offset - 400,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  _trendingController.animateTo(
+                    0,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                }
               },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                size: 15,
               ),
-              icon: const Icon(Icons.trending_up),
-              label: Text(trendingSearch[index].toCapitalize()),
             ),
-          );
-        },
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 7.5, horizontal: 5),
+              scrollDirection: Axis.horizontal,
+              controller: _trendingController,
+              itemCount: trendingSearch.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        searchController.text =
+                            trendingSearch[index].toCapitalize();
+                        search = trendingSearch[index].toCapitalize();
+                        searchGifs(true);
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    icon: const Icon(Icons.trending_up),
+                    label: Text(trendingSearch[index].toCapitalize()),
+                  ),
+                );
+              },
+            ),
+          ),
+          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+            IconButton(
+              onPressed: () {
+                if (_trendingController.offset <
+                    _trendingController.position.maxScrollExtent - 400) {
+                  _trendingController.animateTo(
+                    _trendingController.offset + 400,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  _trendingController.animateTo(
+                    _trendingController.position.maxScrollExtent,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                }
+              },
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              ),
+            ),
+        ],
       ),
     );
   }

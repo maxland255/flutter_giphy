@@ -1,5 +1,7 @@
 import 'flutter_giphy_picker_localizations.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for French (`fr`).
 class GiphyPickerLocalizationsFr extends GiphyPickerLocalizations {
   GiphyPickerLocalizationsFr([String locale = 'fr']) : super(locale);

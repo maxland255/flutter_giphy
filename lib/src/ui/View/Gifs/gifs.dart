@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
@@ -28,6 +30,7 @@ class GifsView extends StatefulWidget {
 
 class _GifsView extends State<GifsView> {
   final ScrollController _scrollController = ScrollController();
+  final ScrollController _categoriesController = ScrollController();
 
   late SuccessResponseMultiModel response;
 
@@ -182,38 +185,90 @@ class _GifsView extends State<GifsView> {
   Widget categoriesView(BuildContext context) {
     return SizedBox(
       height: 40,
-      child: ListView.builder(
-        padding: const EdgeInsets.symmetric(vertical: 7.5, horizontal: 5),
-        scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (BuildContext context, int number) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: ElevatedButton(
+      child: Row(
+        children: [
+          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+            IconButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => CategoriesView(
-                      giphyAPI: widget.giphyAPI,
-                      category: categories[number],
-                      config: widget.config,
-                      isSticker: widget.isSticker,
-                      onSelected: widget.onSelected,
+                if (_categoriesController.offset > 400) {
+                  _categoriesController.animateTo(
+                    _categoriesController.offset - 400,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  _categoriesController.animateTo(
+                    0,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                }
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                size: 15,
+              ),
+            ),
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 7.5, horizontal: 5),
+              scrollDirection: Axis.horizontal,
+              controller: _categoriesController,
+              itemCount: categories.length,
+              itemBuilder: (BuildContext context, int number) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => CategoriesView(
+                            giphyAPI: widget.giphyAPI,
+                            category: categories[number],
+                            config: widget.config,
+                            isSticker: widget.isSticker,
+                            onSelected: widget.onSelected,
+                          ),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
+                    child: Text(categories[number].name),
                   ),
                 );
               },
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              child: Text(categories[number].name),
             ),
-          );
-        },
+          ),
+          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+            IconButton(
+              onPressed: () {
+                if (_categoriesController.offset <
+                    _categoriesController.position.maxScrollExtent - 400) {
+                  _categoriesController.animateTo(
+                    _categoriesController.offset + 400,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  _categoriesController.animateTo(
+                    _categoriesController.position.maxScrollExtent,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                }
+              },
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              ),
+            ),
+        ],
       ),
     );
   }

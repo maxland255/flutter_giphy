@@ -6,26 +6,55 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyApp();
+}
+
+class _MyApp extends State<MyApp> {
+  ThemeMode themeMode = ThemeMode.system;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Giphy Test',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale("en"),
         Locale("fr"),
       ],
-      locale: Locale("fr"),
+      locale: const Locale("fr"),
+      themeMode: themeMode,
+      darkTheme: ThemeData.dark(),
+      theme: ThemeData.light(),
       home: Scaffold(
-        body: TestApp(),
+        appBar: AppBar(
+          title: const Text('Test Flutter Giphy'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  if (themeMode == ThemeMode.system) {
+                    themeMode = ThemeMode.light;
+                  } else if (themeMode == ThemeMode.light) {
+                    themeMode = ThemeMode.dark;
+                  } else {
+                    themeMode = ThemeMode.system;
+                  }
+                });
+              },
+              child: const Text("ThemeMode"),
+            ),
+          ],
+        ),
+        body: const TestApp(),
       ),
     );
   }
@@ -43,40 +72,35 @@ class _TestApp extends State<TestApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Test Flutter Giphy'),
-      ),
-      body: Column(
-        children: [
-          if (gifUrl != null)
-            Center(
-              child: Image.network(
-                gifUrl!.url,
-                fit: BoxFit.contain,
-              ),
-            ),
+    return Column(
+      children: [
+        if (gifUrl != null)
           Center(
-            child: TextButton(
-              onPressed: () async {
-                final config = GiphyUIConfig(
-                  apiKey: "YOUR_API_KEY",
-                );
-
-                final result = await showGiphyPicker(
-                  context,
-                  config,
-                );
-
-                setState(() {
-                  gifUrl = result;
-                });
-              },
-              child: const Text("Open giphy UI"),
+            child: Image.network(
+              gifUrl!.url,
+              fit: BoxFit.contain,
             ),
           ),
-        ],
-      ),
+        Center(
+          child: TextButton(
+            onPressed: () async {
+              final config = GiphyUIConfig(
+                apiKey: "eXnQrseOgDHqDPRFmh5Y2QH2Ntf4mghO",
+              );
+
+              final result = await showGiphyPicker(
+                context,
+                config,
+              );
+
+              setState(() {
+                gifUrl = result;
+              });
+            },
+            child: const Text("Open giphy UI"),
+          ),
+        ),
+      ],
     );
   }
 }

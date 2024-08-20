@@ -109,6 +109,7 @@ class _TranslateView extends State<TranslateView> {
                         giphyAPI: widget.giphyAPI,
                         gif: gif!,
                         config: widget.config,
+                        isSticker: widget.isSticker,
                         onSelected: widget.onSelected,
                       ),
                     ),

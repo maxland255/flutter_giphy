@@ -56,3 +56,12 @@
 - **Giphy picker**:
   - Update gif in select_gif view for slow internet connection.
   - Minor bugs fixe
+
+
+## 1.0.5
+
+### Change
+- **Giphy picker**:
+  - Bug fixes on add sticker to favorite
+  - Edit the first view on open picker to show the trending gifs
+  - Modifie the default theme mode of the picker to match with the app theme mode

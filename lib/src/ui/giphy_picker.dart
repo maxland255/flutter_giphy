@@ -46,6 +46,7 @@ Future<GiphyResult?> showGiphyPicker(
         ),
         config: config,
         locale: locale!,
+        themeMode: config.themeMode.toThemeMode(context),
         onSelected: (GiphyResult url) {
           completer.complete(url);
           Navigator.of(context).pop();

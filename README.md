@@ -1,4 +1,8 @@
-## flutter_giphy Package
+## flutter_giphy_picker Package
+
+![Trending gifs view](./images/gifs.png)
+![Trending stickers view](./images/stickers.png)
+![Emojis view](./images/emojis.png)
 
 This Flutter package provides two main functionalities:
 

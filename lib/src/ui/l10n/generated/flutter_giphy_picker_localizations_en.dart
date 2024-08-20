@@ -1,5 +1,7 @@
 import 'flutter_giphy_picker_localizations.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for English (`en`).
 class GiphyPickerLocalizationsEn extends GiphyPickerLocalizations {
   GiphyPickerLocalizationsEn([String locale = 'en']) : super(locale);

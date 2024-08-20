@@ -69,13 +69,13 @@ class _GifTabView extends State<GifTabView> with TickerProviderStateMixin {
         TabBar.secondary(
           controller: _tabController,
           tabs: [
-            if (widget.config.functionsGif.contains(GiphyFunction.favorites))
-              const Tab(
-                icon: Icon(Icons.favorite),
-              ),
             if (widget.config.functionsGif.contains(GiphyFunction.trending))
               const Tab(
                 icon: Icon(Icons.trending_up),
+              ),
+            if (widget.config.functionsGif.contains(GiphyFunction.favorites))
+              const Tab(
+                icon: Icon(Icons.favorite),
               ),
             if (widget.config.functionsGif.contains(GiphyFunction.translate))
               const Tab(
@@ -88,15 +88,15 @@ class _GifTabView extends State<GifTabView> with TickerProviderStateMixin {
             controller: _tabController,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              if (widget.config.functionsGif.contains(GiphyFunction.favorites))
-                FavoritesView(
+              if (widget.config.functionsGif.contains(GiphyFunction.trending))
+                GifsView(
                   giphyAPI: widget.giphyAPI,
                   config: widget.config,
                   isSticker: widget.isSticker,
                   onSelected: widget.onSelected,
                 ),
-              if (widget.config.functionsGif.contains(GiphyFunction.trending))
-                GifsView(
+              if (widget.config.functionsGif.contains(GiphyFunction.favorites))
+                FavoritesView(
                   giphyAPI: widget.giphyAPI,
                   config: widget.config,
                   isSticker: widget.isSticker,
