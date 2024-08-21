@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
 import 'package:flutter_giphy_picker/src/ui/LocalStorage/local_storage.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_giphy_picker/src/ui/language.dart';
@@ -90,7 +91,7 @@ class _FavoritesView extends State<FavoritesView> {
               )
             : error
                 ? Center(
-                    child: Text(exception.toString()),
+                    child: Text(parseException(exception)),
                   )
                 : gifs.isEmpty
                     ? Center(

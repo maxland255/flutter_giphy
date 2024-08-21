@@ -65,3 +65,16 @@
   - Bug fixes on add sticker to favorite
   - Edit the first view on open picker to show the trending gifs
   - Modifie the default theme mode of the picker to match with the app theme mode
+
+
+## 1.0.6
+
+### Change
+- **Giphy picker**:
+  - Improve error message in gif picker
+  - Print full error message in console in debug mode
+  - Update giphy_ui library to enable compatibility for web
+  - Add a new parameter `debugMode` in `showGiphyPicker` function to enable debug mode by default it's false
+
+- **Giphy API**:
+  - Update GiphyAPI to add debug mode to print full request and response information in console

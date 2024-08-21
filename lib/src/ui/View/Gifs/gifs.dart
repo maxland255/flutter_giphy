@@ -1,9 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
+import 'package:flutter_giphy_picker/src/ui/Platforms/platforms_stub.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/categories.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/search.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
@@ -137,7 +137,7 @@ class _GifsView extends State<GifsView> {
             )
           : error
               ? Center(
-                  child: Text(exception.toString()),
+                  child: Text(parseException(exception)),
                 )
               : Column(
                   children: [
@@ -187,7 +187,10 @@ class _GifsView extends State<GifsView> {
       height: 40,
       child: Row(
         children: [
-          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+          if (PlatformsStub().isWeb() ||
+              PlatformsStub().isWindows() ||
+              PlatformsStub().isLinux() ||
+              PlatformsStub().isFuchsia())
             IconButton(
               onPressed: () {
                 if (_categoriesController.offset > 400) {
@@ -245,7 +248,10 @@ class _GifsView extends State<GifsView> {
               },
             ),
           ),
-          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+          if (PlatformsStub().isWeb() ||
+              PlatformsStub().isWindows() ||
+              PlatformsStub().isLinux() ||
+              PlatformsStub().isFuchsia())
             IconButton(
               onPressed: () {
                 if (_categoriesController.offset <

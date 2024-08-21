@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_giphy_picker/src/ui/giphy_config.dart';
 import 'package:flutter_giphy_picker/src/ui/giphy_result.dart';
@@ -92,7 +93,7 @@ class _TranslateView extends State<TranslateView> {
               )
             else if (error)
               Center(
-                child: Text(errorException.toString()),
+                child: Text(parseException(errorException)),
               )
             else if (gif == null)
               Center(

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_giphy_picker/src/api/Exception/api_exception.dart';
+import 'package:flutter_giphy_picker/src/api/Logger/logger.dart';
 import 'package:http/http.dart' as http;
 
 class GiphyApiManager {
@@ -10,17 +11,28 @@ class GiphyApiManager {
     List<String> pathSegments, {
     Map<String, dynamic>? queryParameters,
     Map<String, String>? headers,
+    bool debugMode = false,
   }) async {
     // Create the URL
     final url = Uri.https(baseUrl, pathSegments.join(''), queryParameters);
 
     // Make the request
 
+    if (debugMode) {
+      Logger.log("GET $url | Headers: $headers");
+    }
+
     try {
       final http.Response response = await http.get(
         url,
         headers: headers,
       );
+
+      if (debugMode) {
+        Logger.log(
+          "Status code: ${response.statusCode} | Response: ${response.body}",
+        );
+      }
 
       // Parse the response
 
@@ -72,7 +84,11 @@ class GiphyApiManager {
     }
   }
 
-  static Future<bool> getUri(String url, String randomID) async {
+  static Future<bool> getUri(
+    String url,
+    String randomID, {
+    bool debugMode = false,
+  }) async {
     final Uri uri = Uri.parse(url);
 
     Map<String, String> newQueryParameters = Map.from(uri.queryParameters);
@@ -82,9 +98,19 @@ class GiphyApiManager {
 
     final newUri = uri.replace(queryParameters: newQueryParameters);
 
+    if (debugMode) {
+      Logger.log("GET $newUri");
+    }
+
     final http.Response response = await http.get(
       newUri,
     );
+
+    if (debugMode) {
+      Logger.log(
+        "Status code: ${response.statusCode} | Response: ${response.body}",
+      );
+    }
 
     if (response.statusCode == 200) {
       return true;

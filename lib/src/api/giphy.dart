@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_giphy_picker/src/api/DataModels/response.dart';
 import 'package:flutter_giphy_picker/src/api/Enum/bundle.dart';
 import 'package:flutter_giphy_picker/src/api/Enum/language.dart';
@@ -14,10 +15,27 @@ import 'package:flutter_giphy_picker/src/api/DataModels/analytics.dart';
 class GiphyAPI {
   final String apiKey;
   final String? randomID;
+  final bool debugMode;
 
   GiphyAPI({
+    /// Giphy API Key
+    ///
+    /// You can get an API key by creating an app on the Giphy Developers website.
+    /// More info on Giphy documentation: https://developers.giphy.com/docs/api#quick-start-guide
     required this.apiKey,
+
+    /// Random ID is used to track user actions
+    ///
+    /// More info on Giphy documentation: https://developers.giphy.com/docs/api/endpoint#random-id
+    /// WARNING: RandomID must be set before using the analytics method.
     this.randomID,
+
+    /// Set to true to enable debug mode
+    ///
+    /// Default is kDebugMode
+    ///
+    /// If true, the API will log all requests and responses
+    this.debugMode = kDebugMode,
   });
 
   /// Get Gifs or Stockers Trending
@@ -78,6 +96,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -154,6 +173,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -207,6 +227,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -260,6 +281,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -297,6 +319,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -327,6 +350,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -371,6 +395,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -431,6 +456,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -459,6 +485,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -507,6 +534,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -553,6 +581,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -580,6 +609,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -607,6 +637,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -618,8 +649,9 @@ class GiphyAPI {
   /// GIPHY Random ID Endpoint allows GIPHY to generate a unique ID you can assign to each new user in your app.
   /// More info on Giphy documentation: https://developers.giphy.com/docs/api/endpoint#random-id
   static Future<SuccessRandomIDResponseModel> createRandomID(
-    String apiKey,
-  ) async {
+    String apiKey, {
+    bool debugMode = kDebugMode,
+  }) async {
     const baseUrl = GiphyAPIPath.baseUrl;
 
     final pathSegments = [
@@ -637,6 +669,7 @@ class GiphyAPI {
       baseUrl,
       pathSegments,
       queryParameters: queryParameters,
+      debugMode: debugMode,
     );
 
     // Parse the response
@@ -661,6 +694,10 @@ class GiphyAPI {
       );
     }
 
-    return await GiphyApiManager.getUri(url, randomID!);
+    return await GiphyApiManager.getUri(
+      url,
+      randomID!,
+      debugMode: debugMode,
+    );
   }
 }

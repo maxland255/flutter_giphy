@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
 import 'package:flutter_giphy_picker/src/ui/Extension/string_extension.dart';
+import 'package:flutter_giphy_picker/src/ui/Platforms/platforms_stub.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_giphy_picker/src/ui/language.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -211,7 +211,10 @@ class _SearchView extends State<SearchView> {
       height: 40,
       child: Row(
         children: [
-          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+          if (PlatformsStub().isWeb() ||
+              PlatformsStub().isWindows() ||
+              PlatformsStub().isLinux() ||
+              PlatformsStub().isFuchsia())
             IconButton(
               onPressed: () {
                 if (_trendingController.offset > 400) {
@@ -265,7 +268,10 @@ class _SearchView extends State<SearchView> {
               },
             ),
           ),
-          if (kIsWeb || Platform.isWindows || Platform.isLinux)
+          if (PlatformsStub().isWeb() ||
+              PlatformsStub().isWindows() ||
+              PlatformsStub().isLinux() ||
+              PlatformsStub().isFuchsia())
             IconButton(
               onPressed: () {
                 if (_trendingController.offset <

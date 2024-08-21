@@ -20,6 +20,13 @@ Future<GiphyResult?> showGiphyPicker(
   ///
   /// If not provided, the locale will be determined from the context.
   GiphyLocale? locale,
+
+  /// Debug Mode
+  ///
+  /// If true, the Giphy API requests will be logged.
+  ///
+  /// Default is false.
+  bool debugMode = false,
 }) async {
   locale ??= GiphyLocale.fromContext(context);
 
@@ -43,6 +50,7 @@ Future<GiphyResult?> showGiphyPicker(
         giphyAPI: GiphyAPI(
           apiKey: config.apiKey,
           randomID: randomID,
+          debugMode: debugMode,
         ),
         config: config,
         locale: locale!,

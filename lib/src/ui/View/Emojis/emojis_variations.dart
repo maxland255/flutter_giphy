@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Emojis/select_emoji.dart';
 import 'package:flutter_giphy_picker/src/ui/giphy_config.dart';
 import 'package:flutter_giphy_picker/src/ui/giphy_result.dart';
@@ -70,7 +71,7 @@ class _EmojisVariationsView extends State<EmojisVariationsView> {
             )
           : error
               ? Center(
-                  child: Text(exception.toString()),
+                  child: Text(parseException(exception)),
                 )
               : MasonryGridView.extent(
                   maxCrossAxisExtent: 250,
