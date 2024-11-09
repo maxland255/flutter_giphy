@@ -78,3 +78,10 @@
 
 - **Giphy API**:
   - Update GiphyAPI to add debug mode to print full request and response information in console
+
+
+## 1.0.7
+
+### Change
+- **General Package Dependencies**
+  - Upgrade all dependencie to the latest version if possible.
