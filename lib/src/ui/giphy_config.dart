@@ -44,6 +44,9 @@ class GiphyUIConfig {
   /// Giphy functionnalities for Sticker
   final List<GiphyFunction> functionsSticker;
 
+  /// Use safe area
+  final bool useSafeArea;
+
   GiphyUIConfig({
     required this.apiKey,
     this.themeMode = GiphyThemeMode.app,
@@ -52,6 +55,7 @@ class GiphyUIConfig {
     this.rating,
     this.language = GiphyLanguage.en,
     this.bundle,
+    this.useSafeArea = false,
     this.show = const [GiphyShow.gif, GiphyShow.sticker, GiphyShow.emoji],
     this.functionsGif = const [
       GiphyFunction.favorites,
