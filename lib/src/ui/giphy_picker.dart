@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -34,8 +36,36 @@ Future<GiphyResult?> showGiphyPicker(
 
   final String randomID = await getRandomID(config.apiKey);
 
+  final mainContent = Giphy(
+      giphyAPI: GiphyAPI(
+        apiKey: config.apiKey,
+        randomID: randomID,
+        debugMode: false,
+      ),
+      config: config,
+      locale: GiphyLocale.fromContext(context),
+      themeMode: config.themeMode.toThemeMode(context),
+      onSelected: (GiphyResult url) {
+        completer.complete(url);
+        Navigator.of(context).pop();
+      },
+      onClosed: () {
+        Navigator.of(context).pop();
+      });
+
+  if (config.useAlertDialog) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            content: SizedBox(
+                width: MediaQuery.of(context).size.width, child: mainContent));
+      },
+    );
+  }
+
   showModalBottomSheet(
-    // ignore: use_build_context_synchronously
     context: context,
     isScrollControlled: true,
     elevation: 10,
@@ -47,23 +77,7 @@ Future<GiphyResult?> showGiphyPicker(
     clipBehavior: Clip.hardEdge,
     useSafeArea: config.useSafeArea,
     builder: (context) {
-      return Giphy(
-        giphyAPI: GiphyAPI(
-          apiKey: config.apiKey,
-          randomID: randomID,
-          debugMode: debugMode,
-        ),
-        config: config,
-        locale: locale!,
-        themeMode: config.themeMode.toThemeMode(context),
-        onSelected: (GiphyResult url) {
-          completer.complete(url);
-          Navigator.of(context).pop();
-        },
-        onClosed: () {
-          Navigator.of(context).pop();
-        },
-      );
+      return mainContent;
     },
   );
 
