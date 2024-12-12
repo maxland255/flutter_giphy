@@ -1,7 +1,7 @@
 /// Giphy UI package
 ///
 /// This package provides a powerful and customizable Giphy picker UI.
-library giphy_ui;
+library;
 
 export 'src/ui/giphy_picker.dart';
 export 'src/ui/giphy_config.dart';

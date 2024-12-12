@@ -1,7 +1,7 @@
 /// A library to interact with the Giphy API.
 ///
 /// This library provides a way to interact with the Giphy API.
-library giphy_api;
+library;
 
 export 'src/api/giphy.dart';
 export 'src/api/Enum/bundle.dart';

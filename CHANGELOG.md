@@ -85,3 +85,12 @@
 ### Change
 - **General Package Dependencies**
   - Upgrade all dependencie to the latest version if possible.
+
+
+## 1.0.8
+
+###
+- **Giphy UI**:
+  - *From a pull requets*:
+    - Add useSafeArea in GiphyUIConfig for the showGiphyPicker function.
+  - Remove deprecated dart / flutter elements.

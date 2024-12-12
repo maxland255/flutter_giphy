@@ -10,9 +10,10 @@ import 'package:flutter_giphy_picker/giphy_api.dart';
 /// rating: Rating
 /// language: GiphyLanguage
 /// bundle: Bundle
-/// show: List<GiphyShow>
-/// functionsGif: List<GiphyFunction>
-/// functionsSticker: List<GiphyFunction>
+/// show: `List<GiphyShow>`
+/// functionsGif: `List<GiphyFunction>`
+/// functionsSticker: `List<GiphyFunction>`
+/// useSafeArea: bool
 class GiphyUIConfig {
   /// Giphy API Key
   final String apiKey;
