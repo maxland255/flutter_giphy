@@ -45,6 +45,7 @@ Future<GiphyResult?> showGiphyPicker(
       ),
     ),
     clipBehavior: Clip.hardEdge,
+    useSafeArea: config.useSafeArea,
     builder: (context) {
       return Giphy(
         giphyAPI: GiphyAPI(
