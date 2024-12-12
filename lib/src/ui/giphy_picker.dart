@@ -54,7 +54,7 @@ Future<GiphyResult?> showGiphyPicker(
       });
 
   if (config.useAlertDialog) {
-    return showDialog(
+    showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
@@ -63,23 +63,23 @@ Future<GiphyResult?> showGiphyPicker(
                 width: MediaQuery.of(context).size.width, child: mainContent));
       },
     );
-  }
-
-  showModalBottomSheet(
-    context: context,
-    isScrollControlled: true,
-    elevation: 10,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        top: Radius.circular(20),
+  } else {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      elevation: 10,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
       ),
-    ),
-    clipBehavior: Clip.hardEdge,
-    useSafeArea: config.useSafeArea,
-    builder: (context) {
-      return mainContent;
-    },
-  );
+      clipBehavior: Clip.hardEdge,
+      useSafeArea: config.useSafeArea,
+      builder: (context) {
+        return mainContent;
+      },
+    );
+  }
 
   return completer.future;
 }
