@@ -59,7 +59,8 @@ Future<GiphyResult?> showGiphyPicker(
       builder: (context) {
         return AlertDialog(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            content: SizedBox(width: width, child: mainContent));
+            content:
+                SizedBox(width: width, child: ClipRect(child: mainContent)));
       },
     );
   } else {
