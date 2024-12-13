@@ -40,7 +40,7 @@ Future<GiphyResult?> showGiphyPicker(
       giphyAPI: GiphyAPI(
         apiKey: config.apiKey,
         randomID: randomID,
-        debugMode: false,
+        debugMode: debugMode,
       ),
       config: config,
       locale: GiphyLocale.fromContext(context),
