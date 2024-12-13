@@ -51,6 +51,10 @@ class GiphyUIConfig {
   /// Use alert dialog instead of bottom sheet
   final bool useAlertDialog;
 
+  /// Width of the Giphy UI
+  /// If null, then the screen width will be used
+  final double? width;
+
   GiphyUIConfig({
     required this.apiKey,
     this.themeMode = GiphyThemeMode.app,
@@ -61,6 +65,7 @@ class GiphyUIConfig {
     this.bundle,
     this.useSafeArea = false,
     this.useAlertDialog = false,
+    this.width,
     this.show = const [GiphyShow.gif, GiphyShow.sticker, GiphyShow.emoji],
     this.functionsGif = const [
       GiphyFunction.favorites,

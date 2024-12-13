@@ -31,7 +31,7 @@ Future<GiphyResult?> showGiphyPicker(
   bool debugMode = false,
 }) async {
   locale ??= GiphyLocale.fromContext(context);
-
+  final width = config.width ?? MediaQuery.of(context).size.width;
   final Completer<GiphyResult?> completer = Completer<GiphyResult?>();
 
   final String randomID = await getRandomID(config.apiKey);
@@ -59,8 +59,7 @@ Future<GiphyResult?> showGiphyPicker(
       builder: (context) {
         return AlertDialog(
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            content: SizedBox(
-                width: MediaQuery.of(context).size.width, child: mainContent));
+            content: SizedBox(width: width, child: mainContent));
       },
     );
   } else {
@@ -68,6 +67,7 @@ Future<GiphyResult?> showGiphyPicker(
       context: context,
       isScrollControlled: true,
       elevation: 10,
+      constraints: BoxConstraints(maxWidth: width),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(20),
