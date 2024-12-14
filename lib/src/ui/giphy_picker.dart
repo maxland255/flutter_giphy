@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -29,43 +31,56 @@ Future<GiphyResult?> showGiphyPicker(
   bool debugMode = false,
 }) async {
   locale ??= GiphyLocale.fromContext(context);
-
+  final width = config.width ?? MediaQuery.of(context).size.width;
   final Completer<GiphyResult?> completer = Completer<GiphyResult?>();
 
   final String randomID = await getRandomID(config.apiKey);
 
-  showModalBottomSheet(
-    // ignore: use_build_context_synchronously
-    context: context,
-    isScrollControlled: true,
-    elevation: 10,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        top: Radius.circular(20),
+  final mainContent = Giphy(
+      giphyAPI: GiphyAPI(
+        apiKey: config.apiKey,
+        randomID: randomID,
+        debugMode: debugMode,
       ),
-    ),
-    clipBehavior: Clip.hardEdge,
-    useSafeArea: config.useSafeArea,
-    builder: (context) {
-      return Giphy(
-        giphyAPI: GiphyAPI(
-          apiKey: config.apiKey,
-          randomID: randomID,
-          debugMode: debugMode,
+      config: config,
+      locale: GiphyLocale.fromContext(context),
+      themeMode: config.themeMode.toThemeMode(context),
+      onSelected: (GiphyResult url) {
+        completer.complete(url);
+        Navigator.of(context).pop();
+      },
+      onClosed: () {
+        Navigator.of(context).pop();
+      });
+
+  if (config.useAlertDialog) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            content:
+                SizedBox(width: width, child: ClipRect(child: mainContent)));
+      },
+    );
+  } else {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      elevation: 10,
+      constraints: BoxConstraints(maxWidth: width),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
         ),
-        config: config,
-        locale: locale!,
-        themeMode: config.themeMode.toThemeMode(context),
-        onSelected: (GiphyResult url) {
-          completer.complete(url);
-          Navigator.of(context).pop();
-        },
-        onClosed: () {
-          Navigator.of(context).pop();
-        },
-      );
-    },
-  );
+      ),
+      clipBehavior: Clip.hardEdge,
+      useSafeArea: config.useSafeArea,
+      builder: (context) {
+        return mainContent;
+      },
+    );
+  }
 
   return completer.future;
 }
