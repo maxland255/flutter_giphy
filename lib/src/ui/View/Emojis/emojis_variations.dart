@@ -81,24 +81,46 @@ class _EmojisVariationsView extends State<EmojisVariationsView> {
                   physics: const BouncingScrollPhysics(),
                   itemCount: emojis.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => SelectEmojiView(
-                              giphyAPI: widget.giphyAPI,
-                              emoji: emojis[index],
-                              config: widget.config,
-                              onSelected: widget.onSelected,
+                    try {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => SelectEmojiView(
+                                giphyAPI: widget.giphyAPI,
+                                emoji: emojis[index],
+                                config: widget.config,
+                                onSelected: widget.onSelected,
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                      child: Image.network(
-                        emojis[index].images.previewGif!.url,
-                        fit: BoxFit.contain,
-                      ),
-                    );
+                          );
+                        },
+                        child: (emojis[index].images.previewGif == null &&
+                                (emojis[index].images.original == null ||
+                                    emojis[index].images.original!.webp ==
+                                        null))
+                            ? const Center(
+                                child: Icon(
+                                  Icons.error,
+                                  size: 50,
+                                  color: Colors.red,
+                                ),
+                              )
+                            : Image.network(
+                                emojis[index].images.previewGif?.url ??
+                                    emojis[index].images.original!.webp!,
+                                fit: BoxFit.contain,
+                              ),
+                      );
+                    } catch (e) {
+                      return const Center(
+                        child: Icon(
+                          Icons.error,
+                          size: 50,
+                          color: Colors.red,
+                        ),
+                      );
+                    }
                   },
                 ),
     );

@@ -89,8 +89,17 @@
 
 ## 1.0.8
 
-###
+### Change
 - **Giphy UI**:
   - *From a pull requets*:
     - Add useSafeArea in GiphyUIConfig for the showGiphyPicker function.
   - Remove deprecated dart / flutter elements.
+
+
+## 1.0.9
+
+### Change
+- **Giphy UI**:
+  - *From a pull requests*:
+    - Add an option to use dialog for Giphy picker
+  - Fix bug in emoji variation widget

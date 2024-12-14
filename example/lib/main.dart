@@ -85,9 +85,10 @@ class _TestApp extends State<TestApp> {
           child: TextButton(
             onPressed: () async {
               final config = GiphyUIConfig(
-                  apiKey: "YOUR_API_KEY",
-                  useSafeArea: true,
-                  useAlertDialog: MediaQuery.sizeOf(context).width > 600);
+                apiKey: "YOUR_API_KEY",
+                useSafeArea: true,
+                useAlertDialog: MediaQuery.sizeOf(context).width > 600,
+              );
 
               final result = await showGiphyPicker(
                 context,

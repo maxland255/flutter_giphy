@@ -37,30 +37,34 @@ Future<GiphyResult?> showGiphyPicker(
   final String randomID = await getRandomID(config.apiKey);
 
   final mainContent = Giphy(
-      giphyAPI: GiphyAPI(
-        apiKey: config.apiKey,
-        randomID: randomID,
-        debugMode: debugMode,
-      ),
-      config: config,
-      locale: GiphyLocale.fromContext(context),
-      themeMode: config.themeMode.toThemeMode(context),
-      onSelected: (GiphyResult url) {
-        completer.complete(url);
-        Navigator.of(context).pop();
-      },
-      onClosed: () {
-        Navigator.of(context).pop();
-      });
+    giphyAPI: GiphyAPI(
+      apiKey: config.apiKey,
+      randomID: randomID,
+      debugMode: debugMode,
+    ),
+    config: config,
+    locale: GiphyLocale.fromContext(context),
+    themeMode: config.themeMode.toThemeMode(context),
+    onSelected: (GiphyResult url) {
+      completer.complete(url);
+      Navigator.of(context).pop();
+    },
+    onClosed: () {
+      Navigator.of(context).pop();
+    },
+  );
 
   if (config.useAlertDialog) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            content:
-                SizedBox(width: width, child: ClipRect(child: mainContent)));
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          content: SizedBox(
+            width: width,
+            child: ClipRect(child: mainContent),
+          ),
+        );
       },
     );
   } else {

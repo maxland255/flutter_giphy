@@ -14,6 +14,8 @@ import 'package:flutter_giphy_picker/giphy_api.dart';
 /// functionsGif: `List<GiphyFunction>`
 /// functionsSticker: `List<GiphyFunction>`
 /// useSafeArea: bool
+/// useAlertDialog: bool
+/// width: double
 class GiphyUIConfig {
   /// Giphy API Key
   final String apiKey;
