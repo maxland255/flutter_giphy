@@ -62,15 +62,18 @@ import 'flutter_giphy_picker_localizations_fr.dart';
 /// be consistent with the languages listed in the GiphyPickerLocalizations.supportedLocales
 /// property.
 abstract class GiphyPickerLocalizations {
-  GiphyPickerLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  GiphyPickerLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static GiphyPickerLocalizations? of(BuildContext context) {
-    return Localizations.of<GiphyPickerLocalizations>(context, GiphyPickerLocalizations);
+    return Localizations.of<GiphyPickerLocalizations>(
+        context, GiphyPickerLocalizations);
   }
 
-  static const LocalizationsDelegate<GiphyPickerLocalizations> delegate = _GiphyPickerLocalizationsDelegate();
+  static const LocalizationsDelegate<GiphyPickerLocalizations> delegate =
+      _GiphyPickerLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -82,7 +85,8 @@ abstract class GiphyPickerLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -180,34 +184,36 @@ abstract class GiphyPickerLocalizations {
   String get emojis;
 }
 
-class _GiphyPickerLocalizationsDelegate extends LocalizationsDelegate<GiphyPickerLocalizations> {
+class _GiphyPickerLocalizationsDelegate
+    extends LocalizationsDelegate<GiphyPickerLocalizations> {
   const _GiphyPickerLocalizationsDelegate();
 
   @override
   Future<GiphyPickerLocalizations> load(Locale locale) {
-    return SynchronousFuture<GiphyPickerLocalizations>(lookupGiphyPickerLocalizations(locale));
+    return SynchronousFuture<GiphyPickerLocalizations>(
+        lookupGiphyPickerLocalizations(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'fr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_GiphyPickerLocalizationsDelegate old) => false;
 }
 
 GiphyPickerLocalizations lookupGiphyPickerLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return GiphyPickerLocalizationsEn();
-    case 'fr': return GiphyPickerLocalizationsFr();
+    case 'en':
+      return GiphyPickerLocalizationsEn();
+    case 'fr':
+      return GiphyPickerLocalizationsFr();
   }
 
   throw FlutterError(
-    'GiphyPickerLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'GiphyPickerLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
