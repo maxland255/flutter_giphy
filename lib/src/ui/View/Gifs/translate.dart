@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/get_preview_url.dart';
 import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_giphy_picker/src/ui/giphy_config.dart';
@@ -117,7 +118,10 @@ class _TranslateView extends State<TranslateView> {
                   );
                 },
                 child: Image.network(
-                  gif!.images.previewGif!.url,
+                  getGifPreviewUrlForQuality(
+                    gif: gif!,
+                    quality: widget.config.previewQuality,
+                  ),
                   fit: BoxFit.contain,
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) {

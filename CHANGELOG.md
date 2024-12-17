@@ -103,3 +103,11 @@
   - *From a pull requests*:
     - Add an option to use dialog for Giphy picker
   - Fix bug in emoji variation widget
+
+
+## 1.0.10
+
+### Change
+- **Ghiphy UI**:
+  - Add an option to choose the preview gifs quality
+  - App a padding in "Select this Gif" / "Select this sticker" / "Select this emoji" button

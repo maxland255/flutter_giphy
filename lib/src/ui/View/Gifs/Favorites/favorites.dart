@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/get_preview_url.dart';
 import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
 import 'package:flutter_giphy_picker/src/ui/LocalStorage/local_storage.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
@@ -128,7 +129,10 @@ class _FavoritesView extends State<FavoritesView> {
                               );
                             },
                             child: Image.network(
-                              gifs[index].images.previewGif!.url,
+                              getGifPreviewUrlForQuality(
+                                gif: gifs[index],
+                                quality: widget.config.previewQuality,
+                              ),
                               fit: BoxFit.contain,
                             ),
                           );

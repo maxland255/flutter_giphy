@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/get_preview_url.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/select_gif.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -125,7 +126,10 @@ class _GifsCategorieView extends State<GifsCategorieView> {
                         );
                       },
                       child: Image.network(
-                        gifs[index].images.previewGif!.url,
+                        getGifPreviewUrlForQuality(
+                          gif: gifs[index],
+                          quality: widget.config.previewQuality,
+                        ),
                         fit: BoxFit.contain,
                       ),
                     );

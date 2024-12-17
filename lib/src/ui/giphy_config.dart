@@ -16,6 +16,7 @@ import 'package:flutter_giphy_picker/giphy_api.dart';
 /// useSafeArea: bool
 /// useAlertDialog: bool
 /// width: double
+/// previewQuality: PreviewQuality
 class GiphyUIConfig {
   /// Giphy API Key
   final String apiKey;
@@ -57,6 +58,10 @@ class GiphyUIConfig {
   /// If null, then the screen width will be used
   final double? width;
 
+  /// Preview quality
+  /// Default is small to load faster the preview
+  final PreviewQuality previewQuality;
+
   GiphyUIConfig({
     required this.apiKey,
     this.themeMode = GiphyThemeMode.app,
@@ -68,6 +73,7 @@ class GiphyUIConfig {
     this.useSafeArea = false,
     this.useAlertDialog = false,
     this.width,
+    this.previewQuality = PreviewQuality.preview,
     this.show = const [GiphyShow.gif, GiphyShow.sticker, GiphyShow.emoji],
     this.functionsGif = const [
       GiphyFunction.favorites,
@@ -149,4 +155,18 @@ enum GiphyThemeMode {
             : ThemeMode.dark;
     }
   }
+}
+
+/// PreviewQuality enum is used to decide which quality to show for the preview
+///
+/// original: Show original quality (slow to load)
+/// large: Show large quality (8mb max size)
+/// medium: Show medium quality (5mb max size)
+/// small: Show small quality (200kb max size)
+enum PreviewQuality {
+  original,
+  large,
+  medium,
+  small,
+  preview;
 }

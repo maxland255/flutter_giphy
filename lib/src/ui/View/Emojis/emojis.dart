@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/get_preview_url.dart';
 import 'package:flutter_giphy_picker/src/ui/Functions/parse_exception.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Emojis/emojis_variations.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Emojis/select_emoji.dart';
@@ -129,7 +130,10 @@ class _EmojisView extends State<EmojisView> {
                         }
                       },
                       child: Image.network(
-                        emojis[index].images.previewGif!.url,
+                        getGifPreviewUrlForQuality(
+                          gif: emojis[index],
+                          quality: widget.config.previewQuality,
+                        ),
                         fit: BoxFit.contain,
                       ),
                     );

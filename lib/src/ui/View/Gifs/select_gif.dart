@@ -151,6 +151,7 @@ class _SelectGifView extends State<SelectGifView> {
               style: ElevatedButton.styleFrom(
                 fixedSize: Size(MediaQuery.of(context).size.width / 3, 30),
                 elevation: 5,
+                padding: const EdgeInsets.all(8),
               ),
               child: Text(
                 widget.isSticker

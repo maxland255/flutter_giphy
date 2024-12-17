@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_giphy_picker/giphy_api.dart';
 import 'package:flutter_giphy_picker/giphy_ui.dart';
+import 'package:flutter_giphy_picker/src/ui/Functions/get_preview_url.dart';
 import 'package:flutter_giphy_picker/src/ui/View/Gifs/gifs_categorie.dart';
 
 class CategoriesView extends StatefulWidget {
@@ -131,6 +132,11 @@ class _CategoriesView extends State<CategoriesView> {
       sticker: widget.isSticker,
     );
 
-    return response.data.first.images.previewGif?.url;
+    final previewUrl = getGifPreviewUrlForQuality(
+      gif: response.data.first,
+      quality: widget.config.previewQuality,
+    );
+
+    return previewUrl;
   }
 }
