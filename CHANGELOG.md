@@ -111,3 +111,10 @@
 - **Ghiphy UI**:
   - Add an option to choose the preview gifs quality
   - App a padding in "Select this Gif" / "Select this sticker" / "Select this emoji" button
+
+
+## 1.0.11
+
+### Change
+- **Giphy UI**:
+  - Fix size of `Select gif` button
