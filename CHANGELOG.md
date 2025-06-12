@@ -118,3 +118,13 @@
 ### Change
 - **Giphy UI**:
   - Fix size of `Select gif` button
+
+
+## 1.0.12
+
+### Change
+- **flutter_giphy_picker**:
+  - Update dependencies to the latest version
+- **Giphy UI**:
+  - *From a pull requests*:
+    - Set auto focus to true on search
