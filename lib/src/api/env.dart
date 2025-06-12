@@ -18,14 +18,18 @@ class GiphyAPIPath {
   /// V2
   static const String emoji = "/emoji";
 
+  /// Giphy Clips base url
+  /// V1
+  static const String clips = "/clips";
+
   // Endpoints
 
   /// Trending Endpoint
-  /// Gifs
+  /// Gifs && Clips
   static const String trending = "/trending";
 
   /// Search Endpoint
-  /// Gifs
+  /// Gifs && Clips
   static const String search = "/search";
 
   /// Translate Endpoint
@@ -69,4 +73,12 @@ class GiphyAPIPath {
 
   /// Trending Search Terms
   static const String trendingSearchTerms = "/trending/searches";
+
+  /// Clips content
+  /// Clips
+  static const String clipsContent = "/content";
+
+  /// Clips content by ID
+  /// Clips
+  static String clipsByID(String id) => "/$clipsContent/$id";
 }
