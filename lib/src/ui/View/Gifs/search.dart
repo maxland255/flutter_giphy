@@ -142,6 +142,7 @@ class _SearchView extends State<SearchView> {
               Expanded(
                 child: TextField(
                   controller: searchController,
+                  autofocus: true,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(),
                     labelText: widget.isSticker
